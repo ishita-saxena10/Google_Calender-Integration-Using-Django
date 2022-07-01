@@ -29,11 +29,11 @@ class Index(View):
 
 
 def GoogleCalendarInitView(request):
+    """
+    This Function starts the first step of OAuth2 mechanism.It Prompts the user for their creds and stores it in token.json file.
+    The file token.json stores the user's access and refresh tokens, and is created automatically when the authorization flow completes for the first time.
+    """
     creds = None
-
-    # The file token.json stores the user's access and refresh tokens, and is
-    # created automatically when the authorization flow completes for the first
-    # time.
 
     if os.path.exists('token.json'):
 
@@ -63,6 +63,9 @@ def GoogleCalendarInitView(request):
 
 
 def GoogleCalendarRedirectView(request):
+    """
+    This Function calls The Google Calender API and lists the Upcoming events of the user (if they exists) in tabular format.
+    """
 
     try:
         service = build('calendar', 'v3', credentials=Credentials.from_authorized_user_file('token.json', SCOPES))
@@ -86,7 +89,7 @@ def GoogleCalendarRedirectView(request):
         
         result={}
 
-        #Creating a dictionary to store the events and their corresponding names.
+        #Creating a dictionary to store the events and their corresponding date and time.
 
         for event in events:
             start = event['start'].get('dateTime', event['start'].get('date'))
