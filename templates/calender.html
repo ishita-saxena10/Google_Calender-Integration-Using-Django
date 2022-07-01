@@ -1,0 +1,118 @@
+<!-- Write HTML code here -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Upcoming Events</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<style>
+    
+h1{
+    font-size: 30px bold;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  table{
+    width:100%;
+    table-layout: fixed;
+  }
+  .tbl-header{
+    background-color: rgba(255,255,255,0.3);
+   }
+  .tbl-content{
+    height:300px;
+    overflow-x:auto;
+    margin-top: 0px;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  th{
+    padding: 20px 15px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 12px;
+    color: #fff;
+    text-transform: uppercase;
+  }
+  td{
+    padding: 15px;
+    text-align: left;
+    vertical-align:middle;
+    font-weight: 300;
+    font-size: 20px bold;
+    color: #fff;
+    border-bottom: solid 1px rgba(255,255,255,0.1);
+  }
+  
+  
+  /* demo styles */
+  
+  @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+  body{
+    background: -webkit-linear-gradient(left, #0d6efc, #25b7c4);
+    background: linear-gradient(to right, #0d6efd, #25b7c4);
+    font-family: 'Roboto', sans-serif;
+  }
+  section{
+    margin: 50px;
+  }
+  
+  
+</style>
+<body>
+    <section>
+        <!--for demo wrap-->
+        <h1>Upcoming Events</h1>
+        <div class="tbl-header">
+          <table cellpadding="0" cellspacing="0" border="0">
+            <thead>
+              <tr>
+                <th><h6><b>Event Name</b></h6></th>
+                <th><h6><b>Date and Time</b></h6></th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div class="tbl-content">
+          <table cellpadding="0" cellspacing="0" border="0">
+            <tbody>
+                {% for i,j in response.items %}
+                <tr>
+                    <td>{{i}}</td>
+                    <td>{{j}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </section>
+<!------
+<div class="container">
+<h2 class="text-center"><u>Upcoming events</u></h2><br>			
+<table class="table table-dark table-striped">
+	<thead>
+	<tr>
+		<th>Event Name</th>
+		<th>Date and Time</th>
+	</tr>
+	</thead>
+	<tbody>
+	{% for i,j in response.items %}
+	<tr>
+		<td>{{i}}</td>
+        <td>{{j}}</td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>
+</div>-------->
+
+</body>
+</html>
